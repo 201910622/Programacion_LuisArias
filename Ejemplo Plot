@@ -1,0 +1,39 @@
+import numpy as np #Libreria numerica de python
+import matplotlib.pyplot as plt #Librerias para graficas
+
+a=np.linspace(0,2,30)
+
+b=np.sin(a)-0.5*a
+
+#Tecnica de subplots y manejo de figuras con ejes
+#Es una de las tecnicas mas rapidas para dar formato
+
+#Propiedades de las ejes tick
+plt.rc('xtick',labelsize=6)
+plt.rc('ytick',labelsize=6)
+
+#Propiedades de figura fig, ax1
+##figzise=(x,y) es el tamaño de la figura en pulgadas
+fig, ax =plt.subplots(1,1,figsize=(4,2))
+
+#spines es propiedades de los ejes
+ax.spines['bottom'].set_position(('data',0))
+ax.spines['left'].set_position(('data',0))
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+
+
+ax.set_xlabel('Longitud (m)',fontsize=8,loc="center")
+ax.set_ylabel('Funcion(m)',fontsize=8,loc="center")
+
+
+#Plot b en funcion a, usando ax
+ax.plot(a,b,'--k',lw=1.4)
+
+#:k linea con puntos
+#-ok line con puntos grandes
+
+##Sirve para guardar la imagen en el computador, puede ser en formato png o pdf o el que se desee
+#plt.savefig('ejemplo.pdf') 
+
+plt.show() #Es necesaria para ver la grafica
